@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>524</width>
-    <height>411</height>
+    <width>652</width>
+    <height>488</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>0</y>
+      <x>190</x>
+      <y>-20</y>
       <width>250</width>
       <height>250</height>
      </rect>
@@ -40,8 +40,8 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>340</y>
-      <width>491</width>
+      <y>420</y>
+      <width>621</width>
       <height>41</height>
      </rect>
     </property>
@@ -65,8 +65,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>220</y>
+      <x>230</x>
+      <y>210</y>
       <width>171</width>
       <height>31</height>
      </rect>
@@ -87,8 +87,8 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>269</y>
-      <width>491</width>
+      <y>250</y>
+      <width>621</width>
       <height>21</height>
      </rect>
     </property>
@@ -129,9 +129,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>290</y>
-      <width>491</width>
-      <height>19</height>
+      <y>390</y>
+      <width>621</width>
+      <height>20</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -154,13 +154,45 @@
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>280</y>
+      <width>621</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>primwIcon</string>
+       </property>
+       <property name="margin">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>secwIcon</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>524</width>
+     <width>652</width>
      <height>22</height>
     </rect>
    </property>

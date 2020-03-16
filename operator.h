@@ -11,6 +11,8 @@ public:
     std::string primaryWeapon;
     std::string secondaryWeapon;
     std::string icon;
+    std::string primaryWeaponIcon;
+    std::string secondaryWeaponIcon;
 
     txtToVector txtVec;
 

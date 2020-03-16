@@ -41,23 +41,27 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_6;
     QLabel *label_5;
+    QWidget *horizontalLayoutWidget_4;
+    QHBoxLayout *horizontalLayout_4;
+    QLabel *label_7;
+    QLabel *label_8;
     QMenuBar *menuBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(524, 411);
+        MainWindow->resize(652, 488);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(130, 0, 250, 250));
+        label->setGeometry(QRect(190, -20, 250, 250));
         label->setMaximumSize(QSize(16777215, 16777215));
         label->setScaledContents(true);
         horizontalLayoutWidget = new QWidget(centralWidget);
         horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(20, 340, 491, 41));
+        horizontalLayoutWidget->setGeometry(QRect(20, 420, 621, 41));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
@@ -75,14 +79,14 @@ public:
 
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(170, 220, 171, 31));
+        label_2->setGeometry(QRect(230, 210, 171, 31));
         QFont font;
         font.setPointSize(19);
         label_2->setFont(font);
         label_2->setAlignment(Qt::AlignCenter);
         horizontalLayoutWidget_2 = new QWidget(centralWidget);
         horizontalLayoutWidget_2->setObjectName(QStringLiteral("horizontalLayoutWidget_2"));
-        horizontalLayoutWidget_2->setGeometry(QRect(20, 269, 491, 21));
+        horizontalLayoutWidget_2->setGeometry(QRect(20, 250, 621, 21));
         horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -106,7 +110,7 @@ public:
 
         horizontalLayoutWidget_3 = new QWidget(centralWidget);
         horizontalLayoutWidget_3->setObjectName(QStringLiteral("horizontalLayoutWidget_3"));
-        horizontalLayoutWidget_3->setGeometry(QRect(20, 290, 491, 19));
+        horizontalLayoutWidget_3->setGeometry(QRect(20, 390, 621, 20));
         horizontalLayout_3 = new QHBoxLayout(horizontalLayoutWidget_3);
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -123,10 +127,30 @@ public:
 
         horizontalLayout_3->addWidget(label_5);
 
+        horizontalLayoutWidget_4 = new QWidget(centralWidget);
+        horizontalLayoutWidget_4->setObjectName(QStringLiteral("horizontalLayoutWidget_4"));
+        horizontalLayoutWidget_4->setGeometry(QRect(20, 280, 621, 101));
+        horizontalLayout_4 = new QHBoxLayout(horizontalLayoutWidget_4);
+        horizontalLayout_4->setSpacing(6);
+        horizontalLayout_4->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
+        label_7 = new QLabel(horizontalLayoutWidget_4);
+        label_7->setObjectName(QStringLiteral("label_7"));
+        label_7->setMargin(0);
+
+        horizontalLayout_4->addWidget(label_7);
+
+        label_8 = new QLabel(horizontalLayoutWidget_4);
+        label_8->setObjectName(QStringLiteral("label_8"));
+        label_8->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        horizontalLayout_4->addWidget(label_8);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 524, 22));
+        menuBar->setGeometry(QRect(0, 0, 652, 22));
         MainWindow->setMenuBar(menuBar);
 
         retranslateUi(MainWindow);
@@ -145,6 +169,8 @@ public:
         label_3->setText(QApplication::translate("MainWindow", "Secondary:", Q_NULLPTR));
         label_6->setText(QApplication::translate("MainWindow", "TextLabel", Q_NULLPTR));
         label_5->setText(QApplication::translate("MainWindow", "TextLabel", Q_NULLPTR));
+        label_7->setText(QApplication::translate("MainWindow", "primwIcon", Q_NULLPTR));
+        label_8->setText(QApplication::translate("MainWindow", "secwIcon", Q_NULLPTR));
     } // retranslateUi
 
 };

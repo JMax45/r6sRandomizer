@@ -41,4 +41,7 @@ void Operator::randomize(std::string option){
 
     icon = ("data/icons/"+name+".png");
     boost::to_lower(icon);
+
+    primaryWeaponIcon = ("data/weapons/"+primaryWeapon+".png");
+    secondaryWeaponIcon = ("data/weapons/"+secondaryWeapon+".png");
 }
