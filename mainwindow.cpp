@@ -21,6 +21,9 @@ void MainWindow::on_pushButton_clicked()
     QPixmap pix(qstr);
     ui->label->setPixmap(pix);
     ui->label_2->setText(QString::fromStdString(player.name));
+
+    ui->label_5->setText(QString::fromStdString(player.secondaryWeapon));
+    ui->label_6->setText(QString::fromStdString(player.primaryWeapon));
 }
 
 void MainWindow::on_pushButton_2_clicked()
@@ -31,4 +34,7 @@ void MainWindow::on_pushButton_2_clicked()
     QPixmap pix(qstr);
     ui->label->setPixmap(pix);
     ui->label_2->setText(QString::fromStdString(player.name));
+
+    ui->label_5->setText(QString::fromStdString(player.secondaryWeapon));
+    ui->label_6->setText(QString::fromStdString(player.primaryWeapon));
 }
