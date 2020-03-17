@@ -79,6 +79,7 @@ public:
 
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setEnabled(true);
         label_2->setGeometry(QRect(230, 210, 171, 31));
         QFont font;
         font.setPointSize(19);
