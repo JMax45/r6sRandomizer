@@ -19,9 +19,9 @@ C75 Auto; SMG-12
 P9; LFP586
 PMM; GSh-18
 1911 TACOPS
-.44 Mag Semi-Auto
+44 Mag Semi-Auto
 Super Shorty; SDP 9mm
 5.7 USG; D-50
-ITA12S; SMG11
-C75 Auto; P226 Mk25
+ITA12S; SMG-11
+C75 Auto; P226 Mk 25
 Mk1 9mm

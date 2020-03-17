@@ -88,15 +88,15 @@ LFP586
 PMM
 GSh-18
 1911 TACOPS
-.44 Mag Semi-Auto
+44 Mag Semi-Auto
 Super Shorty
 SDP 9mm
 5.7 USG
 D-50
 ITA12S
-SMG11
+SMG-11
 C75 Auto
-P226 Mk25
+P226 Mk 25
 Mk1 9mm
 FMG-9
 M590A1
@@ -117,7 +117,7 @@ SASG-12
 SASG-12
 9x19VSN
 M870
-416-C Carabine
+416-C Carbine
 MP7
 M870
 Super 90
@@ -171,7 +171,7 @@ GSh-18
 PMM
 P12
 P12
-Mk19mm
+Mk1 9mm
 D-50
 Luison
 P229
@@ -183,12 +183,12 @@ RG15
 C75 Auto
 SMG-12
 Bailiff 410
-kERATOS .357
-Kereatos .357
+Keratos .357
+Keratos .357
 Bailiff 410
 P-10C
 SPSMG9
-.44 Mag Semi-Auto
+44 Mag Semi-Auto
 Super Shorty
 SDP 9mm
 P-10C
