@@ -18,8 +18,8 @@ public:
 
 private slots:
     void on_pushButton_clicked();
-
     void on_pushButton_2_clicked();
+    void setOperator(std::string role);
 
 private:
     Ui::MainWindow *ui;
