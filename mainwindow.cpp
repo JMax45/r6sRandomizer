@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    manageLayout("hide");
 }
 
 MainWindow::~MainWindow()
@@ -14,6 +15,7 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::setOperator(std::string role){
+    manageLayout("show");
     Operator player;
     player.randomize(role);
     QString qstr = QString::fromStdString(player.icon);
@@ -31,6 +33,29 @@ void MainWindow::setOperator(std::string role){
 
     ui->label_7->setPixmap(primaryWeaponIcon);
     ui->label_8->setPixmap(secondaryWeaponIcon);
+}
+
+void MainWindow::manageLayout(std::string option){
+    if(option == "show"){
+        ui->label->show();
+        ui->label_2->show();
+        ui->label_3->show();
+        ui->label_4->show();
+        ui->label_5->show();
+        ui->label_6->show();
+        ui->label_7->show();
+        ui->label_8->show();
+    }
+    if(option == "hide"){
+        ui->label->hide();
+        ui->label_2->hide();
+        ui->label_3->hide();
+        ui->label_4->hide();
+        ui->label_5->hide();
+        ui->label_6->hide();
+        ui->label_7->hide();
+        ui->label_8->hide();
+    }
 }
 
 void MainWindow::on_pushButton_clicked()
