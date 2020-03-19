@@ -1,2 +1,2 @@
-M45 MEUSOC
-5.7 USG
+P229
+Bearing 9
