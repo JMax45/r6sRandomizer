@@ -9,7 +9,7 @@ A [Rainbow Six Siege](https://www.ubisoft.com/en-us/game/rainbow-six/siege) oper
 
 ---
 
-## Table of Contents (Optional)
+## Table of Contents
 
 - [Installation](#installation)
 - [Team](#team)
