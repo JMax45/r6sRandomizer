@@ -9,6 +9,7 @@ class SplitString
 {
 public:
     void split(std::string s, std::string delimiter, std::string filename);
+    void splitMultiple(std::string s, std::string delimiter, std::string filename);
     SplitString();
 };
 

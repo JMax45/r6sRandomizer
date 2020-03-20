@@ -17,10 +17,20 @@ public:
     ~MainWindow();
 
 private slots:
+    std::vector<std::string> txtToVector(std::string filename);
+    bool checkExists(std::string filename);
+    void checkDatabase();
+
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
     void setOperator(std::string role);
     void manageLayout(std::string option);
+
+    void on_actionCheck_database_triggered();
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_4_clicked();
 
 private:
     Ui::MainWindow *ui;
