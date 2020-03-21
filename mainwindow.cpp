@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -82,6 +83,13 @@ void MainWindow::checkDatabase(){
     ui->label_12->setText(message2);
     remove("data/weapons.txt");
     remove("data/missing.txt");
+
+    if(missingFiles==0){
+        QMessageBox::about(this, "Database Analysis", "The database is complete");
+    }
+    else{
+        QMessageBox::warning(this, "Database Analysis", "Missing files in the database");
+    }
 
 }
 
