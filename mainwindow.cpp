@@ -42,14 +42,17 @@ void splitMultiple(std::vector<std::string> weapons){
 void MainWindow::checkDatabase(){
     std::vector<std::string> weapons;
 
-    weapons = txtToVector("data/attackers/primaryWeapons.txt");
-    splitMultiple(weapons);
-    weapons = txtToVector("data/attackers/secondaryWeapons.txt");
-    splitMultiple(weapons);
-    weapons = txtToVector("data/defenders/primaryWeapons.txt");
-    splitMultiple(weapons);
-    weapons = txtToVector("data/defenders/secondaryWeapons.txt");
-    splitMultiple(weapons);
+    // Array of all weapons files to use in the for loop
+    std::string weaponsList[] = {"data/attackers/primaryWeapons.txt", "data/attackers/secondaryWeapons.txt",
+                                 "data/defenders/primaryWeapons.txt", "data/defenders/secondaryWeapons.txt"};
+    // Gets weaponsList size
+    int weaponsListSize = sizeof(weaponsList)/sizeof(weaponsList[0]);
+
+    // Splits all weapons in weapons.txt
+    for(int i=0; i<weaponsListSize; i++){
+        weapons = txtToVector(weaponsList[i]);
+        splitMultiple(weapons);
+    }
 
     weapons = txtToVector("data/weapons.txt");
     std::ofstream file("data/missing.txt");
@@ -78,12 +81,16 @@ void MainWindow::checkDatabase(){
     QString message = QString::fromStdString(std::to_string(missingFiles) + " missing.");
     ui->label_13->setText(message);
 
+    // Finds how many files were found by doing [allFiles - missingFiles]
     int num = weapons.size() - missingFiles;
     QString message2 = QString::fromStdString(std::to_string(num) + " found.");
     ui->label_12->setText(message2);
+
+    // These files are no longer needed as we showed them in the program
     remove("data/weapons.txt");
     remove("data/missing.txt");
 
+    // Checks if the database is complete or not
     if(missingFiles==0){
         QMessageBox::about(this, "Database Analysis", "The database is complete");
     }
