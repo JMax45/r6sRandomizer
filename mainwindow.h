@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "operator.h"
+#include <algorithm>
 
 namespace Ui {
 class MainWindow;

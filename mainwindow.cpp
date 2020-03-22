@@ -39,6 +39,14 @@ void splitMultiple(std::vector<std::string> weapons){
     }
 }
 
+template <typename T>
+std::vector<std::string> remove_duplicates(std::vector<T>& vec)
+{
+  std::sort(vec.begin(), vec.end());
+  vec.erase(std::unique(vec.begin(), vec.end()), vec.end());
+  return vec;
+}
+
 void MainWindow::checkDatabase(){
     std::vector<std::string> weapons;
 
@@ -55,6 +63,8 @@ void MainWindow::checkDatabase(){
     }
 
     weapons = txtToVector("data/weapons.txt");
+    weapons = remove_duplicates(weapons);
+
     std::ofstream file("data/missing.txt");
 
     int missingFiles = 0;
