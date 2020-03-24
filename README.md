@@ -22,7 +22,7 @@ A [Rainbow Six Siege](https://www.ubisoft.com/en-us/game/rainbow-six/siege) oper
 
 ### Clone
 
-- Clone this repo to your local machine using `https://github.com/JMax45/r6sRandomizer`
+- Clone this repo to your local machine using `git clone https://github.com/JMax45/r6sRandomizer`
 
 ### Setup
 
