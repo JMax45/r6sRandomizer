@@ -62,6 +62,7 @@ public:
     QWidget *horizontalLayoutWidget_3;
     QHBoxLayout *horizontalLayout_9;
     QPushButton *pushButton_4;
+    QPushButton *pushButton_5;
     QLabel *label_9;
     QLabel *label_10;
     QWidget *horizontalLayoutWidget_4;
@@ -241,6 +242,11 @@ public:
 
         horizontalLayout_9->addWidget(pushButton_4);
 
+        pushButton_5 = new QPushButton(horizontalLayoutWidget_3);
+        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
+
+        horizontalLayout_9->addWidget(pushButton_5);
+
         label_9 = new QLabel(horizontalLayoutWidget_3);
         label_9->setObjectName(QStringLiteral("label_9"));
         label_9->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
@@ -316,6 +322,7 @@ public:
         pushButton_2->setText(QApplication::translate("MainWindow", "Defender", Q_NULLPTR));
         pushButton_3->setText(QApplication::translate("MainWindow", "Home", Q_NULLPTR));
         pushButton_4->setText(QApplication::translate("MainWindow", "Analyze", Q_NULLPTR));
+        pushButton_5->setText(QApplication::translate("MainWindow", "Rebuild", Q_NULLPTR));
         label_9->setText(QApplication::translate("MainWindow", "Status:", Q_NULLPTR));
         label_10->setText(QApplication::translate("MainWindow", "standby", Q_NULLPTR));
         label_11->setText(QApplication::translate("MainWindow", "Result:", Q_NULLPTR));

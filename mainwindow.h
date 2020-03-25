@@ -4,6 +4,10 @@
 #include <QMainWindow>
 #include "operator.h"
 #include <algorithm>
+#include <downloader.h>
+
+#include <QWidget>
+#include <QFile>
 
 namespace Ui {
 class MainWindow;
@@ -35,6 +39,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    Downloader *downloader;
 };
 
 #endif // MAINWINDOW_H

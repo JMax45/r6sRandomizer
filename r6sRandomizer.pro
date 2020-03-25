@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -29,12 +29,14 @@ SOURCES += \
     operator.cpp \
     splitstring.cpp \
     txttovector.cpp \
+    downloader.cpp
 
 HEADERS += \
         mainwindow.h \
     operator.h \
     splitstring.h \
     txttovector.h \
+    downloader.h
 
 FORMS += \
         mainwindow.ui

@@ -9,6 +9,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     manageLayout("hide");
     ui->stackedWidget->setCurrentIndex((0));
+
+    downloader = new Downloader(); // Инициализируем Downloader
+    // по нажатию кнопки запускаем получение данных по http
+    connect(ui->pushButton_5, &QPushButton::clicked, downloader, &Downloader::getData);
+
 }
 
 MainWindow::~MainWindow()

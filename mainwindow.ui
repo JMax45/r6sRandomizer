@@ -234,6 +234,13 @@
           </widget>
          </item>
          <item>
+          <widget class="QPushButton" name="pushButton_5">
+           <property name="text">
+            <string>Rebuild</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QLabel" name="label_9">
            <property name="text">
             <string>Status:</string>
