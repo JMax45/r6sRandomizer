@@ -10,7 +10,12 @@ Downloader::Downloader(QObject *parent) : QObject(parent)
 
 void Downloader::getData()
 {
-    QUrl url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/NewTux.svg/1200px-NewTux.svg.png"); // URL, к которому будем получать данные
+    std::ifstream file("data/weapons/missing.txt");
+    std::string argUrl;
+    file >> argUrl;
+    file.close();
+    QString argUrlConv = QString::fromStdString(argUrl);
+    QUrl url = argUrlConv;
     QNetworkRequest request;    // Отправляемый запрос
     request.setUrl(url);        // Устанавлвиваем URL в запрос
     manager->get(request);      // Выполняем запрос
@@ -25,7 +30,7 @@ void Downloader::onResult(QNetworkReply *reply)
         qDebug() << reply->errorString();
     } else {
         // В противном случае создаём объект для работы с файлом
-        QFile *file = new QFile("image.png");
+        QFile *file = new QFile("data/image.jpg");
         // Создаём файл или открываем его на перезапись ...
         if(file->open(QFile::WriteOnly)){
             file->write(reply->readAll());  // ... и записываем всю информацию со страницы в файл

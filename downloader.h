@@ -8,6 +8,8 @@
 #include <QFile>
 #include <QUrl>
 #include <QDebug>
+#include <iostream>
+#include <fstream>
 
 class Downloader : public QObject
 {
