@@ -374,6 +374,7 @@ compiler_moc_header_clean:
 moc_mainwindow.cpp: ../operator.h \
 		../splitstring.h \
 		../txttovector.h \
+		../downloader.h \
 		../mainwindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
@@ -406,15 +407,16 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 main.o: ../main.cpp ../mainwindow.h \
 		../operator.h \
 		../splitstring.h \
-		../txttovector.h
+		../txttovector.h \
+		../downloader.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../main.cpp
 
 mainwindow.o: ../mainwindow.cpp ../mainwindow.h \
 		../operator.h \
 		../splitstring.h \
 		../txttovector.h \
-		ui_mainwindow.h \
-		../downloader.h
+		../downloader.h \
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../mainwindow.cpp
 
 operator.o: ../operator.cpp ../operator.h \

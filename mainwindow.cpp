@@ -103,7 +103,8 @@ void MainWindow::checkDatabase(){
 
     // These files are no longer needed as we showed them in the program
     remove("data/weapons.txt");
-    remove("data/missing.txt");
+
+    downloader->createDownloadFile("data/missing.txt", "data/weapons/");
 
     // Checks if the database is complete or not
     if(missingFiles==0){

@@ -10,6 +10,7 @@
 #include <QDebug>
 #include <iostream>
 #include <fstream>
+#include "txttovector.h"
 
 class Downloader : public QObject
 {
@@ -23,7 +24,7 @@ signals:
 public slots:
     void getData();     // Метод инициализации запроса на получение данных
     void onResult(QNetworkReply *reply);    // Слот обработки ответа о полученных данных
-
+    void createDownloadFile(std::string toDownloadLocation, std::string whereToSave);
 private:
     QNetworkAccessManager *manager; // менеджер сетевого доступа
 };

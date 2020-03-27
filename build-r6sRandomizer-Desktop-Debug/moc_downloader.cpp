@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Downloader_t {
-    QByteArrayData data[7];
-    char stringdata0[58];
+    QByteArrayData data[11];
+    char stringdata0[120];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -37,11 +37,17 @@ QT_MOC_LITERAL(2, 19, 0), // ""
 QT_MOC_LITERAL(3, 20, 7), // "getData"
 QT_MOC_LITERAL(4, 28, 8), // "onResult"
 QT_MOC_LITERAL(5, 37, 14), // "QNetworkReply*"
-QT_MOC_LITERAL(6, 52, 5) // "reply"
+QT_MOC_LITERAL(6, 52, 5), // "reply"
+QT_MOC_LITERAL(7, 58, 18), // "createDownloadFile"
+QT_MOC_LITERAL(8, 77, 11), // "std::string"
+QT_MOC_LITERAL(9, 89, 18), // "toDownloadLocation"
+QT_MOC_LITERAL(10, 108, 11) // "whereToSave"
 
     },
     "Downloader\0onReady\0\0getData\0onResult\0"
-    "QNetworkReply*\0reply"
+    "QNetworkReply*\0reply\0createDownloadFile\0"
+    "std::string\0toDownloadLocation\0"
+    "whereToSave"
 };
 #undef QT_MOC_LITERAL
 
@@ -51,7 +57,7 @@ static const uint qt_meta_data_Downloader[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -59,11 +65,12 @@ static const uint qt_meta_data_Downloader[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   29,    2, 0x06 /* Public */,
+       1,    0,   34,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   30,    2, 0x0a /* Public */,
-       4,    1,   31,    2, 0x0a /* Public */,
+       3,    0,   35,    2, 0x0a /* Public */,
+       4,    1,   36,    2, 0x0a /* Public */,
+       7,    2,   39,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -71,6 +78,7 @@ static const uint qt_meta_data_Downloader[] = {
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 5,    6,
+    QMetaType::Void, 0x80000000 | 8, 0x80000000 | 8,    9,   10,
 
        0        // eod
 };
@@ -84,6 +92,7 @@ void Downloader::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 0: _t->onReady(); break;
         case 1: _t->getData(); break;
         case 2: _t->onResult((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 3: _t->createDownloadFile((*reinterpret_cast< std::string(*)>(_a[1])),(*reinterpret_cast< std::string(*)>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -134,13 +143,13 @@ int Downloader::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 4;
     }
     return _id;
 }
