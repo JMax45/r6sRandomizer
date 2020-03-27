@@ -13,6 +13,7 @@ void Downloader::getData()
     txtToVector transform;
     std::vector<std::string> conf = transform.transform("data/toDownload.txt");
 
+    // Reads the first line which contains the location of the file with missing content
     std::vector<std::string> missing;
     missing = transform.transform(conf[0]);
 
@@ -39,6 +40,7 @@ void Downloader::onResult(QNetworkReply *reply)
     } else {
         txtToVector transform;
         std::vector<std::string> conf = transform.transform("data/toDownload.txt");
+        QFile("data/toDownload.txt").remove();
 
         // В противном случае создаём объект для работы с файлом
         QFile *file = new QFile(QString::fromStdString(conf[1])+QUrl(reply->url()).fileName());
