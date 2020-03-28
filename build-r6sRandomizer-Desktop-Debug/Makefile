@@ -51,9 +51,13 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../source/main.cpp \
-		../source/mainwindow.cpp moc_mainwindow.cpp
+		../source/mainwindow.cpp \
+		../source/database.cpp \
+		../source/operator.cpp moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
+		database.o \
+		operator.o \
 		moc_mainwindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -109,6 +113,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		../source/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -128,8 +133,12 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../source/r6sRandomizer.pro ../source/mainwindow.h ../source/main.cpp \
-		../source/mainwindow.cpp
+		../source/r6sRandomizer.pro ../source/mainwindow.h \
+		../source/database.h \
+		../source/operator.h ../source/main.cpp \
+		../source/mainwindow.cpp \
+		../source/database.cpp \
+		../source/operator.cpp
 QMAKE_TARGET  = r6sRandomizer
 DESTDIR       = 
 TARGET        = r6sRandomizer
@@ -195,6 +204,7 @@ Makefile: ../source/r6sRandomizer.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linu
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -273,6 +283,7 @@ Makefile: ../source/r6sRandomizer.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linu
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -311,8 +322,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../source/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../source/main.cpp ../source/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../source/mainwindow.h ../source/database.h ../source/operator.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../source/main.cpp ../source/mainwindow.cpp ../source/database.cpp ../source/operator.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../source/mainwindow.ui $(DISTDIR)/
 
 
@@ -348,7 +359,9 @@ moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 compiler_moc_header_make_all: moc_mainwindow.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp
-moc_mainwindow.cpp: ../source/mainwindow.h \
+moc_mainwindow.cpp: ../source/database.h \
+		../source/operator.h \
+		../source/mainwindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/jmax/r6sRandomizer/source -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../source/mainwindow.h -o moc_mainwindow.cpp
@@ -372,12 +385,23 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
-main.o: ../source/main.cpp ../source/mainwindow.h
+main.o: ../source/main.cpp ../source/mainwindow.h \
+		../source/database.h \
+		../source/operator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../source/main.cpp
 
 mainwindow.o: ../source/mainwindow.cpp ../source/mainwindow.h \
+		../source/database.h \
+		../source/operator.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../source/mainwindow.cpp
+
+database.o: ../source/database.cpp ../source/database.h \
+		../source/operator.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o database.o ../source/database.cpp
+
+operator.o: ../source/operator.cpp ../source/operator.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o operator.o ../source/operator.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
