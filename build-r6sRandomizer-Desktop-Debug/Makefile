@@ -380,7 +380,8 @@ moc_mainwindow.cpp: ../operator.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/jmax/r6sRandomizer -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../mainwindow.h -o moc_mainwindow.cpp
 
-moc_downloader.cpp: ../downloader.h \
+moc_downloader.cpp: ../txttovector.h \
+		../downloader.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/jmax/r6sRandomizer -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../downloader.h -o moc_downloader.cpp
@@ -430,7 +431,8 @@ splitstring.o: ../splitstring.cpp ../splitstring.h
 txttovector.o: ../txttovector.cpp ../txttovector.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o txttovector.o ../txttovector.cpp
 
-downloader.o: ../downloader.cpp ../downloader.h
+downloader.o: ../downloader.cpp ../downloader.h \
+		../txttovector.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o downloader.o ../downloader.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
