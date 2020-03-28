@@ -53,11 +53,13 @@ OBJECTS_DIR   = ./
 SOURCES       = ../source/main.cpp \
 		../source/mainwindow.cpp \
 		../source/database.cpp \
-		../source/operator.cpp moc_mainwindow.cpp
+		../source/operator.cpp \
+		../source/text.cpp moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		database.o \
 		operator.o \
+		text.o \
 		moc_mainwindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -135,10 +137,12 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		../source/r6sRandomizer.pro ../source/mainwindow.h \
 		../source/database.h \
-		../source/operator.h ../source/main.cpp \
+		../source/operator.h \
+		../source/text.h ../source/main.cpp \
 		../source/mainwindow.cpp \
 		../source/database.cpp \
-		../source/operator.cpp
+		../source/operator.cpp \
+		../source/text.cpp
 QMAKE_TARGET  = r6sRandomizer
 DESTDIR       = 
 TARGET        = r6sRandomizer
@@ -322,8 +326,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../source/mainwindow.h ../source/database.h ../source/operator.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../source/main.cpp ../source/mainwindow.cpp ../source/database.cpp ../source/operator.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../source/mainwindow.h ../source/database.h ../source/operator.h ../source/text.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../source/main.cpp ../source/mainwindow.cpp ../source/database.cpp ../source/operator.cpp ../source/text.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../source/mainwindow.ui $(DISTDIR)/
 
 
@@ -361,6 +365,7 @@ compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp
 moc_mainwindow.cpp: ../source/database.h \
 		../source/operator.h \
+		../source/text.h \
 		../source/mainwindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
@@ -387,21 +392,27 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 main.o: ../source/main.cpp ../source/mainwindow.h \
 		../source/database.h \
-		../source/operator.h
+		../source/operator.h \
+		../source/text.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../source/main.cpp
 
 mainwindow.o: ../source/mainwindow.cpp ../source/mainwindow.h \
 		../source/database.h \
 		../source/operator.h \
+		../source/text.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../source/mainwindow.cpp
 
 database.o: ../source/database.cpp ../source/database.h \
-		../source/operator.h
+		../source/operator.h \
+		../source/text.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o database.o ../source/database.cpp
 
 operator.o: ../source/operator.cpp ../source/operator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o operator.o ../source/operator.cpp
+
+text.o: ../source/text.cpp ../source/text.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o text.o ../source/text.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

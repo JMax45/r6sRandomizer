@@ -8,7 +8,7 @@ Database::Database()
     aPrimaryWeapons   = txtToVector("../data/attackers/primaryWeapons.txt");
     aSecondaryWeapons = txtToVector("../data/attackers/secondaryWeapons.txt");
     dPrimaryWeapons   = txtToVector("../data/defenders/primaryWeapons.txt");
-    dSecondaryWeapons = txtToVector("../data/defenders/secondary.txt");
+    dSecondaryWeapons = txtToVector("../data/defenders/secondaryWeapons.txt");
 }
 
 std::vector<std::string> Database::txtToVector(std::string filename){
@@ -26,7 +26,7 @@ void Database::randomize(){
     if(opRole == "attacker"){
         op.randomize(attackers, aPrimaryWeapons, aSecondaryWeapons);
     }
-    if(opRole == "defender"){
+    else{
         op.randomize(defenders, dPrimaryWeapons, dSecondaryWeapons);
     }
 }

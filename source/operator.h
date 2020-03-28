@@ -5,9 +5,13 @@
 #include <vector>
 #include <algorithm>
 #include <cctype>
+#include "text.h"
+#include <QFile>
 
 class Operator
 {
+private:
+    Text text;
 public:
     Operator();
     std::string name;

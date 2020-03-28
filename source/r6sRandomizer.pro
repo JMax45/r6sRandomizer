@@ -27,12 +27,14 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     database.cpp \
-    operator.cpp
+    operator.cpp \
+    text.cpp
 
 HEADERS += \
         mainwindow.h \
     database.h \
-    operator.h
+    operator.h \
+    text.h
 
 FORMS += \
         mainwindow.ui

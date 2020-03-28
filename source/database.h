@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include "operator.h"
+#include "text.h"
 
 #ifndef DATABASE_H
 #define DATABASE_H
