@@ -56,3 +56,4 @@ $ ./r6sRandomizer
 
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
 - Copyright 2020 © <a href="https://www.jz-software.com" target="_blank">JZ-Software</a>.
+
