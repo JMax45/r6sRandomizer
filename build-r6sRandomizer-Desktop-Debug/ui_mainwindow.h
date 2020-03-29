@@ -18,7 +18,6 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
@@ -51,7 +50,6 @@ public:
     QPushButton *pushButton_2;
     QWidget *page_2;
     QMenuBar *menuBar;
-    QMenu *menuTools;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -157,15 +155,10 @@ public:
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 567, 22));
-        menuTools = new QMenu(menuBar);
-        menuTools->setObjectName(QStringLiteral("menuTools"));
         MainWindow->setMenuBar(menuBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
-
-        menuBar->addAction(menuTools->menuAction());
-        menuTools->addAction(actionCheck_Database);
 
         retranslateUi(MainWindow);
 
@@ -184,7 +177,6 @@ public:
         label_6->setText(QApplication::translate("MainWindow", "icon.png", Q_NULLPTR));
         pushButton->setText(QApplication::translate("MainWindow", "Attacker", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("MainWindow", "Defender", Q_NULLPTR));
-        menuTools->setTitle(QApplication::translate("MainWindow", "Tools", Q_NULLPTR));
     } // retranslateUi
 
 };
