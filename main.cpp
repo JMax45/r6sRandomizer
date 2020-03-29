@@ -1,3 +1,5 @@
+// v1.0
+
 #include "mainwindow.h"
 #include <QApplication>
 #include <iostream>
