@@ -2,24 +2,14 @@
 
 Database::Database()
 {
-    attackers = txtToVector("../data/attackers/names.txt");
-    defenders = txtToVector("../data/defenders/names.txt");
+    // Reads all files with informations and converts them to vector
+    attackers = text.txtToVector("../data/attackers/names.txt");
+    defenders = text.txtToVector("../data/defenders/names.txt");
 
-    aPrimaryWeapons   = txtToVector("../data/attackers/primaryWeapons.txt");
-    aSecondaryWeapons = txtToVector("../data/attackers/secondaryWeapons.txt");
-    dPrimaryWeapons   = txtToVector("../data/defenders/primaryWeapons.txt");
-    dSecondaryWeapons = txtToVector("../data/defenders/secondaryWeapons.txt");
-}
-
-std::vector<std::string> Database::txtToVector(std::string filename){
-    std::vector<std::string> allStrings;
-    std::ifstream file(filename);
-    std::string str;
-    while(std::getline(file, str)){
-    allStrings.push_back(str);
-    }
-    file.close();
-    return allStrings;
+    aPrimaryWeapons   = text.txtToVector("../data/attackers/primaryWeapons.txt");
+    aSecondaryWeapons = text.txtToVector("../data/attackers/secondaryWeapons.txt");
+    dPrimaryWeapons   = text.txtToVector("../data/defenders/primaryWeapons.txt");
+    dSecondaryWeapons = text.txtToVector("../data/defenders/secondaryWeapons.txt");
 }
 
 void Database::randomize(){

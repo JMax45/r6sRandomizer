@@ -10,7 +10,7 @@
 class Database
 {
 private:
-    std::vector<std::string> txtToVector(std::string filename);
+    Text text;
     std::vector<std::string> attackers;
     std::vector<std::string> defenders;
 

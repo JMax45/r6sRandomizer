@@ -22,8 +22,11 @@ public:
 private slots:
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
+
+    // It shows all the randomized information in the graphics
     void setOp();
 
+    // Goes to the check database page
     void on_actionCheck_Database_triggered();
 
 private:
