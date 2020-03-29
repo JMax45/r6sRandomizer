@@ -20,3 +20,38 @@ void Database::randomize(){
         op.randomize(defenders, dPrimaryWeapons, dSecondaryWeapons);
     }
 }
+
+void Database::download(std::vector<std::string> toDownload){
+
+}
+
+void Database::checkFirstLaunch(){
+    bool value;
+    value = text.checkExists("../data/conf/firstLaunch.txt");
+    if(value==true){
+        std::vector<std::string> toDownload;
+
+        // Attackers icons
+        for(int i=0; i<attackers.size(); i++){
+            std::string op;
+            op = attackers[i];
+            std::transform(op.begin(), op.end(), op.begin(), [](unsigned char c){ return std::tolower(c); });
+            toDownload.push_back("https://www.jz-software.com/app/r6s-randomizer/data/icons/"+op+".png");
+        }
+        // Defenders icons
+        for(int i=0; i<defenders.size(); i++){
+            std::string op;
+            op = defenders[i];
+            std::transform(op.begin(), op.end(), op.begin(), [](unsigned char c){ return std::tolower(c); });
+            toDownload.push_back("https://www.jz-software.com/app/r6s-randomizer/data/icons/"+op+".png");
+        }
+
+        download(toDownload);
+        for(int i=0; i<toDownload.size(); i++){
+            qDebug() << QString::fromStdString(toDownload[i]);
+        }
+    }
+    else{
+        qDebug() << "First launch: false";
+    }
+}

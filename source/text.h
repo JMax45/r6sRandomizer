@@ -11,6 +11,7 @@ class Text
 public:
     void split(std::string s, std::string delimiter, std::string filename);
     std::vector<std::string> txtToVector(std::string filename);
+    bool checkExists(std::string filename);
     Text();
 };
 

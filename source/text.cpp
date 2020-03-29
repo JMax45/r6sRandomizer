@@ -29,3 +29,8 @@ std::vector<std::string> Text::txtToVector(std::string filename){
     file.close();
     return allStrings;
 }
+
+bool Text::checkExists(std::string filename){
+    std::ifstream file(filename);
+    return (bool)file;
+}
