@@ -1,3 +1,5 @@
+#include <QDebug>
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -21,6 +23,8 @@ private slots:
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
     void setOp();
+
+    void on_actionCheck_Database_triggered();
 
 private:
     Ui::MainWindow *ui;

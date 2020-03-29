@@ -39,3 +39,8 @@ void MainWindow::setOp(){
     ui->label_4->setPixmap(QPixmap(QString::fromStdString("../data/weapons/"+database.op.primaryWeapon+".png")));
     ui->label_6->setPixmap(QPixmap(QString::fromStdString("../data/weapons/"+database.op.secondaryWeapon+".png")));
 }
+
+void MainWindow::on_actionCheck_Database_triggered()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
