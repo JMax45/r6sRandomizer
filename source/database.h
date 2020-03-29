@@ -4,6 +4,7 @@
 #include "operator.h"
 #include "text.h"
 #include <QDebug>
+#include <downloader.h>
 
 #ifndef DATABASE_H
 #define DATABASE_H
@@ -21,6 +22,8 @@ private:
     std::vector<std::string> dSecondaryWeapons;
 
     bool firstLaunch;
+    Downloader downloader;
+
 public:
     Database();
     Operator op;
