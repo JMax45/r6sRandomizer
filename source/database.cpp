@@ -38,6 +38,7 @@ void Database::checkFirstLaunch(){
     bool value;
     value = text.checkExists("../data/conf/firstLaunch.txt");
     if(value==true){
+        QFile("../data/conf/firstLaunch.txt").remove();
         std::vector<std::string> toDownload;
         std::vector<std::string> downloadIcons;
 
