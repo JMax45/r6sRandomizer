@@ -57,29 +57,17 @@ void Database::checkFirstLaunch(){
 
         // Download icons
         std::vector<std::string> vec;
-        for(int i=0; i<aPrimaryWeapons.size(); i++){
-            qDebug() << QString::fromStdString(aPrimaryWeapons[i]);
-            text.split(aPrimaryWeapons[i], "; ", "../data/splitMult.txt");
-            std::vector<std::string> vec2 = text.txtToVector("../data/splitMult.txt");
-            vec.insert(vec.end(), vec2.begin(), vec2.end());
-        }
-        for(int i=0; i<dPrimaryWeapons.size(); i++){
-            qDebug() << QString::fromStdString(aPrimaryWeapons[i]);
-            text.split(dPrimaryWeapons[i], "; ", "../data/splitMult.txt");
-            std::vector<std::string> vec2 = text.txtToVector("../data/splitMult.txt");
-            vec.insert(vec.end(), vec2.begin(), vec2.end());
-        }
-        for(int i=0; i<aSecondaryWeapons.size(); i++){
-            qDebug() << QString::fromStdString(aPrimaryWeapons[i]);
-            text.split(aSecondaryWeapons[i], "; ", "../data/splitMult.txt");
-            std::vector<std::string> vec2 = text.txtToVector("../data/splitMult.txt");
-            vec.insert(vec.end(), vec2.begin(), vec2.end());
-        }
-        for(int i=0; i<dSecondaryWeapons.size(); i++){
-            qDebug() << QString::fromStdString(aPrimaryWeapons[i]);
-            text.split(dSecondaryWeapons[i], "; ", "../data/splitMult.txt");
-            std::vector<std::string> vec2 = text.txtToVector("../data/splitMult.txt");
-            vec.insert(vec.end(), vec2.begin(), vec2.end());
+        std::vector<std::string> allVector[] = {aPrimaryWeapons, dPrimaryWeapons, aSecondaryWeapons, dSecondaryWeapons};
+
+        for(int i=0; i<4; i++){
+            std::vector<std::string> weaponsVector;
+            weaponsVector = allVector[i];
+            for(int i=0; i<weaponsVector.size(); i++){
+                qDebug() << QString::fromStdString(weaponsVector[i]);
+                text.split(weaponsVector[i], "; ", "../data/splitMult.txt");
+                std::vector<std::string> vec2 = text.txtToVector("../data/splitMult.txt");
+                vec.insert(vec.end(), vec2.begin(), vec2.end());
+            }
         }
 
         for(int i=0; i<vec.size(); i++){
