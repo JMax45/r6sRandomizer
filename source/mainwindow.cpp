@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    database.checkFirstLaunch();
+    database.check();
 }
 
 MainWindow::~MainWindow()

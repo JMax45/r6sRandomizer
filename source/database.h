@@ -23,6 +23,8 @@ private:
 
     bool firstLaunch;
     Downloader downloader;
+    std::vector<std::string> allWeapons;
+    void splitWeapons();
 
 public:
     Database();
@@ -31,6 +33,7 @@ public:
     void randomize();
     void download(std::vector<std::string> toDownload);
     void checkFirstLaunch();
+    void check();
 };
 
 #endif // DATABASE_H

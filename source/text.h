@@ -16,6 +16,7 @@ public:
     bool checkExists(std::string filename);
     template <typename T>
     std::vector<std::string> remove_duplicates(std::vector<T>& vec);
+    std::string tolower(std::string str);
     Text();
 };
 

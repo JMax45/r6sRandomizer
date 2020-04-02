@@ -10,6 +10,8 @@ Database::Database()
     aSecondaryWeapons = text.txtToVector("../data/attackers/secondaryWeapons.txt");
     dPrimaryWeapons   = text.txtToVector("../data/defenders/primaryWeapons.txt");
     dSecondaryWeapons = text.txtToVector("../data/defenders/secondaryWeapons.txt");
+
+    splitWeapons();
 }
 
 void Database::randomize(){
@@ -22,7 +24,7 @@ void Database::randomize(){
 }
 
 void Database::download(std::vector<std::string> toDownload){
-
+    downloader.getData(toDownload);
 }
 
 
@@ -34,61 +36,63 @@ std::vector<std::string> remove_duplicates(std::vector<T>& vec)
   return vec;
 }
 
-void Database::checkFirstLaunch(){
-    bool value;
-    value = text.checkExists("../data/conf/firstLaunch.txt");
-    if(value==true){
-        QFile("../data/conf/firstLaunch.txt").remove();
-        std::vector<std::string> toDownload;
-        std::vector<std::string> downloadIcons;
+void Database::splitWeapons(){
+    // Download icons
+    std::vector<std::string> vec;
+    std::vector<std::string> allVector[] = {aPrimaryWeapons, dPrimaryWeapons, aSecondaryWeapons, dSecondaryWeapons};
 
-        // Concatenates attackers and defenders vectors
-        downloadIcons.insert(downloadIcons.end(), attackers.begin(), attackers.end());
-        downloadIcons.insert(downloadIcons.end(), defenders.begin(), defenders.end());
-
-        // Download icons
-        for(int i=0; i<downloadIcons.size(); i++){
-            std::string op;
-            op = downloadIcons[i];
-            // Converts to lowercase
-            std::transform(op.begin(), op.end(), op.begin(), [](unsigned char c){ return std::tolower(c); });
-            toDownload.push_back("https://www.jz-software.com/app/r6s-randomizer/data/icons/"+op+".png");
+    for(int i=0; i<4; i++){
+        std::vector<std::string> weaponsVector;
+        weaponsVector = allVector[i];
+        for(int i=0; i<weaponsVector.size(); i++){
+            qDebug() << QString::fromStdString(weaponsVector[i]);
+            text.split(weaponsVector[i], "; ", "../data/splitMult.txt");
+            std::vector<std::string> vec2 = text.txtToVector("../data/splitMult.txt");
+            vec.insert(vec.end(), vec2.begin(), vec2.end());
         }
-
-        // Download icons
-        std::vector<std::string> vec;
-        std::vector<std::string> allVector[] = {aPrimaryWeapons, dPrimaryWeapons, aSecondaryWeapons, dSecondaryWeapons};
-
-        for(int i=0; i<4; i++){
-            std::vector<std::string> weaponsVector;
-            weaponsVector = allVector[i];
-            for(int i=0; i<weaponsVector.size(); i++){
-                qDebug() << QString::fromStdString(weaponsVector[i]);
-                text.split(weaponsVector[i], "; ", "../data/splitMult.txt");
-                std::vector<std::string> vec2 = text.txtToVector("../data/splitMult.txt");
-                vec.insert(vec.end(), vec2.begin(), vec2.end());
-            }
-        }
-
-        for(int i=0; i<vec.size(); i++){
-            std::ofstream file("../data/splitMult.txt", std::ios::app);
-            file << vec[i] << "\n";
-            file.close();
-        }
-        vec = text.txtToVector("../data/splitMult.txt");
-        vec = remove_duplicates(vec);
-
-        // Download icons
-        for(int i=0; i<vec.size(); i++){
-            std::string op;
-            op = vec[i];
-            toDownload.push_back("https://www.jz-software.com/app/r6s-randomizer/data/weapons/"+op+".png");
-        }
-
-        downloader.getData(toDownload);
-
     }
-    else{
-        qDebug() << "First launch: false";
+
+    for(int i=0; i<vec.size(); i++){
+        std::ofstream file("../data/splitMult.txt", std::ios::app);
+        file << vec[i] << "\n";
+        file.close();
     }
+    vec = text.txtToVector("../data/splitMult.txt");
+    vec = remove_duplicates(vec);
+    allWeapons = vec;
+}
+
+void Database::check(){
+    int operatorsQuantity;
+    std::vector<std::string> allOperators;
+
+    allOperators.insert(allOperators.end(), attackers.begin(), attackers.end());
+    allOperators.insert(allOperators.end(), defenders.begin(), defenders.end());
+
+    operatorsQuantity = allOperators.size();
+
+    std::vector<std::string> toDownload;
+    for(int i=0; i<operatorsQuantity; i++){
+        bool exists = text.checkExists("../data/icons/"+text.tolower(allOperators[i])+".png");
+        if(exists == true){
+            qDebug() << "File exists";
+        }
+        else{
+            std::string filePath = "https://www.jz-software.com/app/r6s-randomizer/data/icons/"+allOperators[i]+".png";
+            toDownload.push_back(text.tolower(filePath));
+        }
+    }
+    for(int i=0; i<allWeapons.size(); i++){
+        bool exists = text.checkExists("../data/weapons/"+allWeapons[i]+".png");
+        if(exists == true){
+            qDebug() << "File exists";
+        }
+        else{
+            std::string filePath = "https://www.jz-software.com/app/r6s-randomizer/data/weapons/"+allWeapons[i]+".png";
+            toDownload.push_back(filePath);
+        }
+    }
+
+    download(toDownload);
+
 }

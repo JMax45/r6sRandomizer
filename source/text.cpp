@@ -55,3 +55,9 @@ std::vector<std::string> remove_duplicates(std::vector<T>& vec){
   vec.erase(std::unique(vec.begin(), vec.end()), vec.end());
   return vec;
 }
+
+std::string Text::tolower(std::string str){
+    std::transform(str.begin(), str.end(), str.begin(),
+                   [](unsigned char c){ return std::tolower(c); });
+    return str;
+}
