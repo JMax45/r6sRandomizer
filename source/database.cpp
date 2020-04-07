@@ -3,13 +3,24 @@
 Database::Database()
 {
     // Reads all files with informations and converts them to vector
-    attackers = text.txtToVector("../data/attackers/names.txt");
-    defenders = text.txtToVector("../data/defenders/names.txt");
+    operators = text.txtToVector("../data/names.txt");
+    roles =     text.txtToVector("../data/roles.txt");
 
-    aPrimaryWeapons   = text.txtToVector("../data/attackers/primaryWeapons.txt");
-    aSecondaryWeapons = text.txtToVector("../data/attackers/secondaryWeapons.txt");
-    dPrimaryWeapons   = text.txtToVector("../data/defenders/primaryWeapons.txt");
-    dSecondaryWeapons = text.txtToVector("../data/defenders/secondaryWeapons.txt");
+    primaryWeapons    = text.txtToVector("../data/primaryWeapons.txt");
+    secondaryWeapons  = text.txtToVector("../data/secondaryWeapons.txt");
+
+    for(int i=0; i<operators.size(); i++){
+        if(roles[i]=="attacker"){
+            attackers.push_back(operators[i]);
+            aPrimaryWeapons.push_back(primaryWeapons[i]);
+            aSecondaryWeapons.push_back(secondaryWeapons[i]);
+        }
+        if(roles[i]=="defender"){
+            defenders.push_back(operators[i]);
+            dPrimaryWeapons.push_back(primaryWeapons[i]);
+            dSecondaryWeapons.push_back(secondaryWeapons[i]);
+        }
+    }
 
     splitWeapons();
 }
@@ -60,6 +71,7 @@ void Database::splitWeapons(){
     vec = text.txtToVector("../data/splitMult.txt");
     vec = remove_duplicates(vec);
     allWeapons = vec;
+    QFile("../data/splitMult.txt").remove();
 }
 
 void Database::check(){

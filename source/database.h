@@ -13,9 +13,14 @@ class Database
 {
 private:
     Text text;
+
+    std::vector<std::string> operators;
+    std::vector<std::string> roles;
     std::vector<std::string> attackers;
     std::vector<std::string> defenders;
 
+    std::vector<std::string> primaryWeapons;
+    std::vector<std::string> secondaryWeapons;
     std::vector<std::string> aPrimaryWeapons;
     std::vector<std::string> aSecondaryWeapons;
     std::vector<std::string> dPrimaryWeapons;
